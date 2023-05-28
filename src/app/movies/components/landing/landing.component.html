@@ -1,0 +1,28 @@
+<div class="movie-wrapper">
+  <h1>Movies</h1>
+  <div class="movie-container">
+    <ng-container *ngFor="let movie of movies | search: pageName : searchText">
+      <div class="movie-details">
+        <div class="image-container">
+          <img
+            class="movie-image"
+            src="{{ movie.thumbnail_url }}"
+            height="100%"
+          />
+          <a
+            class="book-now-button"
+            (click)="navigateToTheatres(movie.movie_name)"
+            >Book Now</a
+          >
+          <div class="imdb-rating">
+            <div>{{ movie.imdb_rating }}/10</div>
+            <div>- IMDB Rating</div>
+          </div>
+        </div>
+
+        <div class="movie-name">{{ movie.movie_name }}</div>
+        <div class="movie-jonor">{{ movie.tags.split(",").join(" | ") }}</div>
+      </div>
+    </ng-container>
+  </div>
+</div>

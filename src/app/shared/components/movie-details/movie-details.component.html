@@ -1,0 +1,29 @@
+<div class="movie-details-container">
+  <div class="img-movie">
+    <img src="{{ movieDetails?.thumbnail_url }}" />
+  </div>
+  <div class="movie-info">
+    <h2 class="movie-name">{{ movieDetails?.movie_name }}</h2>
+    <div class="imdb-rating">
+      <h4 class="movie-rating">{{ movieDetails?.imdb_rating }}/10</h4>
+      <h4 class="movie-rating">- IMDB Rating</h4>
+    </div>
+    <div class="movie-languages-container">
+      <ng-container *ngFor="let lang of languages">
+        <div class="movie-languages">{{ lang }}</div>
+      </ng-container>
+    </div>
+    <div class="other-details">
+      <span class="movie-running-time">{{ movieDetails?.running_time }}</span>
+      <span class="details-separator"></span>
+      <span>
+        <ng-container *ngFor="let jonor of jonors; let i = index">
+          <span class="movie-tags">{{ jonor }}</span>
+          <span *ngIf="i + 1 !== jonors?.length">,</span>
+        </ng-container>
+      </span>
+      <span class="details-separator"></span>
+      <span class="movie-date">{{ movieDetails?.release_date }}</span>
+    </div>
+  </div>
+</div>

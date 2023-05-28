@@ -1,0 +1,7 @@
+<div class="main-header">
+  <h1>Book Cinema</h1>
+  <app-search-bar></app-search-bar>
+  <div class="show-button">
+    <button class="view-now-button" (click)="navigateToPage()">Show {{ page === movies ? theatres : movies }}</button>
+  </div>
+</div>
