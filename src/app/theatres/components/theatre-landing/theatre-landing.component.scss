@@ -25,7 +25,7 @@
 .theatre-details {
     display: grid;
     grid-template-columns: 360px auto;
-    align-items: center;
+    align-items: flex-start;
     padding: 20px;
     border-bottom: 1px solid #ccc;
 
@@ -67,6 +67,7 @@
 .show-container {
     display: flex;
     height: 65%;
+    flex-wrap: wrap;
     align-items: center;
 
     .show-info {
