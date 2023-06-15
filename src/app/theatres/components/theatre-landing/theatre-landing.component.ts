@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { APP_PATH } from 'src/app/Main/constants/constants';
-import { Details, Movie, Theatre } from 'src/app/shared/models/details';
+import { Movie, Theatre } from 'src/app/shared/models/details';
 import { CinemaService } from 'src/app/shared/services/cinema.service';
 import { Store, select } from '@ngrx/store';
 import { getDetailsData } from 'src/app/Store/details.selector';
@@ -21,10 +21,12 @@ export class TheatreLandingComponent implements OnInit, OnDestroy {
   public movie: Movie | undefined;
   public ngUnsubscribe = new Subject();
   public searchText: string = '';
+  public movies: Movie[] | undefined;
 
   constructor(
     private cinemaService: CinemaService,
     private activatedRoute: ActivatedRoute,
+    private route: Router,
     private store: Store
   ) {
     this.movieName = this.activatedRoute.snapshot.paramMap.get('id');
@@ -34,6 +36,7 @@ export class TheatreLandingComponent implements OnInit, OnDestroy {
     this.store.dispatch(getAllDetails({userName: this.userMail}));
 
     this.store.pipe(select(getDetailsData)).subscribe((data) => {
+        this.movies = data?.movies;
       if (this.movieName != 'all' && data) {
         this.movie = data?.movies?.find(
           (obj) => obj.movie_name === this.movieName
@@ -58,6 +61,11 @@ export class TheatreLandingComponent implements OnInit, OnDestroy {
       });
 
     this.cinemaService.setPageName(this.pageName);
+  }
+
+  showSeatsAvailable(theatreDetails: any,showTime: any,movieName: any) {
+    this.cinemaService.updateBookSeatsDetails(theatreDetails,showTime,movieName);
+    this.route.navigate([this.route.url +'/'+ APP_PATH.bookSeats]);
   }
 
   ngOnDestroy(): void {

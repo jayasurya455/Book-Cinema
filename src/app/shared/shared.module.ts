@@ -6,11 +6,15 @@ import { NavigationBarComponent } from './components/navigation-bar/navigation-b
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
 import { SearchPipe } from './pipes/search/search.pipe';
 import { FormsModule } from '@angular/forms';
+import { DatesAvailableComponent } from './components/dates-available/dates-available.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 export { SearchBarComponent } from './components/search-bar/search-bar.component';
 export { HeaderComponent } from './components/header/header.component';
 export { MovieDetailsComponent } from './components/movie-details/movie-details.component';
 export { SearchPipe } from './pipes/search/search.pipe';
+export { DatesAvailableComponent } from './components/dates-available/dates-available.component';
+export { FooterComponent } from './components/footer/footer.component';
 
 
 
@@ -21,7 +25,9 @@ export { SearchPipe } from './pipes/search/search.pipe';
     HeaderComponent,
     NavigationBarComponent,
     MovieDetailsComponent,
-    SearchPipe
+    SearchPipe,
+    DatesAvailableComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
@@ -31,7 +37,9 @@ export { SearchPipe } from './pipes/search/search.pipe';
     SearchBarComponent,
     HeaderComponent,
     MovieDetailsComponent,
-    SearchPipe
+    SearchPipe,
+    DatesAvailableComponent,
+    FooterComponent
   ],
 })
 export class SharedModule { }

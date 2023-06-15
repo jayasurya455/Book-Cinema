@@ -2,16 +2,22 @@
     background-color: #000;
 }
 
+.theatre-title{
+    margin: 1rem 0;
+}
+
 .theatre-list {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    padding: 2rem;
+    background-color: #fff;
+    border-radius: 15px;
 }
 
 .theatre-landing {
     overflow-y: scroll;
     max-height: calc(100vh - 110px);
+    background: #f5f5f5;
 }
 
 .theatre-info {
@@ -30,7 +36,7 @@
     border-bottom: 1px solid #ccc;
 
     &:hover {
-        background-color: #f5f5f5;
+        background-color: #ccc;
     }
 
     img{
@@ -112,4 +118,8 @@
         font-size: 22px;
         font-weight: 700;
     }
+}
+
+.theatres-conatiner{
+    margin: 1rem 0 2rem 2rem;
 }

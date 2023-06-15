@@ -4,11 +4,13 @@ import { CommonModule } from '@angular/common';
 import { TheatresRoutingModule } from './theatres-routing.module';
 import { TheatreLandingComponent } from './components/theatre-landing/theatre-landing.component';
 import { SharedModule } from '../shared/shared.module';
+import { TheatreBookSeatsComponent } from './components/theatre-book-seats/theatre-book-seats.component';
 
 
 @NgModule({
   declarations: [
-    TheatreLandingComponent
+    TheatreLandingComponent,
+    TheatreBookSeatsComponent
   ],
   imports: [
     CommonModule,

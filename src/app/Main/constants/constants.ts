@@ -1,5 +1,6 @@
 export const APP_PATH = {
     movies: 'movies',
     theatres: 'theatres',
-    all: "all"
+    all: 'all',
+    bookSeats: 'book-seats'
 };

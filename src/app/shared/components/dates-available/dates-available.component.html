@@ -1,0 +1,9 @@
+<div class="dates-container">
+  <ng-container *ngFor="let dateValue of availableDates; let i = index">
+    <a class="date-detail" [ngClass]="{ 'active': dateValue.getDate() == activeDate.getDate() }" (click)="setActiveDate(dateValue)">
+      <div class="date-conatiner">{{ dateValue | date : "EE" }}</div>
+      <div class="date-conatiner">{{ dateValue | date : "d" }}</div>
+      <div class="date-conatiner">{{ dateValue | date : "MMMM" }}</div>
+    </a>
+  </ng-container>
+</div>

@@ -1,70 +1,121 @@
 <div class="theatre-landing">
-  <ng-container *ngIf="movieName !== 'all'">
-    <div class="movie-background">
-      <app-movie-details [movieDetails]="movie"></app-movie-details>
-    </div>
-  </ng-container>
-  <h1>Theatres</h1>
-  <div class="theatre-list">
-    <ng-container *ngFor="let theatre of theatres | search: pageName : searchText">
-      <div class="theatre-details">
-        <div class="img-container">
-          <img src="{{ theatre.thumbnail_url }}" />
-          <div class="cust-rating">
-            <div class="theatre-rating">{{ theatre.customer_rating }}/5</div>
-            <div class="theatre-rating">- Customer Rating</div>
-          </div>
-        </div>
-        <div class="theatre-info">
-          <div class="theatre-name">{{ theatre.theatre_name }}</div>
-          <div class="theatre-address">{{ theatre.address }}</div>
-          <div class="show-movie">
-            <a href="{{ theatre.website }}" target="_blank"> visit site</a>
-          </div>
-          <div class="show-container">
-            <ng-container
-              *ngIf="theatre.show1_movie === movieName || movieName === 'all'"
-            >
-              <div class="show-info">
-                <div class="show-time">{{ theatre.show1_time }}</div>
-                <div *ngIf="movieName === 'all'" class="show-movie">
-                  {{ theatre.show1_movie }}
-                </div>
-              </div>
-            </ng-container>
-            <ng-container
-              *ngIf="theatre.show2_movie === movieName || movieName === 'all'"
-            >
-              <div class="show-info">
-                <div class="show-time">{{ theatre.show2_time }}</div>
-                <div *ngIf="movieName === 'all'" class="show-movie">
-                  {{ theatre.show2_movie }}
-                </div>
-              </div>
-            </ng-container>
-            <ng-container
-              *ngIf="theatre.show3_movie === movieName || movieName === 'all'"
-            >
-              <div class="show-info">
-                <div class="show-time">{{ theatre.show3_time }}</div>
-                <div *ngIf="movieName === 'all'" class="show-movie">
-                  {{ theatre.show3_movie }}
-                </div>
-              </div>
-            </ng-container>
-            <ng-container
-              *ngIf="theatre.show4_movie === movieName || movieName === 'all'"
-            >
-              <div class="show-info">
-                <div class="show-time">{{ theatre.show4_time }}</div>
-                <div *ngIf="movieName === 'all'" class="show-movie">
-                  {{ theatre.show4_movie }}
-                </div>
-              </div>
-            </ng-container>
-          </div>
-        </div>
+  <div class="theatres-conatiner">
+    <ng-container *ngIf="movieName !== 'all'">
+      <div class="movie-background">
+        <app-movie-details [movieDetails]="movie"></app-movie-details>
       </div>
     </ng-container>
+    <h1 class="theatre-title">Theatres</h1>
+    <div class="theatre-dates-conatiner">
+      <app-dates-available></app-dates-available>
+    </div>
+    <div class="theatre-list">
+      <ng-container
+        *ngFor="let theatre of theatres | search : pageName : searchText"
+      >
+        <div class="theatre-details">
+          <div class="img-container">
+            <img src="{{ theatre.thumbnail_url }}" />
+            <div class="cust-rating">
+              <div class="theatre-rating">{{ theatre.customer_rating }}/5</div>
+              <div class="theatre-rating">- Customer Rating</div>
+            </div>
+          </div>
+          <div class="theatre-info">
+            <div class="theatre-name">{{ theatre.theatre_name }}</div>
+            <div class="theatre-address">{{ theatre.address }}</div>
+            <div class="show-movie">
+              <a href="{{ theatre.website }}" target="_blank"> visit site</a>
+            </div>
+            <div class="show-container">
+              <ng-container
+                *ngIf="theatre.show1_movie === movieName || movieName === 'all'"
+              >
+                <div class="show-info">
+                  <button
+                    class="show-time"
+                    (click)="
+                      showSeatsAvailable(
+                        theatre,
+                        theatre.show1_time,
+                        theatre.show1_movie
+                      )
+                    "
+                  >
+                    {{ theatre.show1_time }}
+                  </button>
+                  <div *ngIf="movieName === 'all'" class="show-movie">
+                    {{ theatre.show1_movie }}
+                  </div>
+                </div>
+              </ng-container>
+              <ng-container
+                *ngIf="theatre.show2_movie === movieName || movieName === 'all'"
+              >
+                <div class="show-info">
+                  <button
+                    class="show-time"
+                    (click)="
+                      showSeatsAvailable(
+                        theatre,
+                        theatre.show2_time,
+                        theatre.show2_movie
+                      )
+                    "
+                  >
+                    {{ theatre.show2_time }}
+                  </button>
+                  <div *ngIf="movieName === 'all'" class="show-movie">
+                    {{ theatre.show2_movie }}
+                  </div>
+                </div>
+              </ng-container>
+              <ng-container
+                *ngIf="theatre.show3_movie === movieName || movieName === 'all'"
+              >
+                <div class="show-info">
+                  <button
+                    class="show-time"
+                    (click)="
+                      showSeatsAvailable(
+                        theatre,
+                        theatre.show3_time,
+                        theatre.show3_movie
+                      )
+                    "
+                  >
+                    {{ theatre.show3_time }}
+                  </button>
+                  <div *ngIf="movieName === 'all'" class="show-movie">
+                    {{ theatre.show3_movie }}
+                  </div>
+                </div>
+              </ng-container>
+              <ng-container
+                *ngIf="theatre.show4_movie === movieName || movieName === 'all'"
+              >
+                <div class="show-info">
+                  <button
+                    class="show-time"
+                    (click)="
+                      showSeatsAvailable(
+                        theatre,
+                        theatre.show4_time,
+                        theatre.show4_movie
+                      )
+                    "
+                  >
+                    {{ theatre.show4_time }}
+                  </button>
+                  <div *ngIf="movieName === 'all'" class="show-movie">
+                    {{ theatre.show4_movie }}
+                  </div>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
   </div>
 </div>
