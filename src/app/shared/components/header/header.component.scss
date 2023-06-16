@@ -9,10 +9,16 @@ h1{
     padding: 0px;
     box-shadow: none;
     display: grid;
-    grid-template-columns: 17rem auto auto;
     align-items: center;
 }
 
+.four-columns {
+    grid-template-columns: 17rem  1rem auto auto;
+}
+
+.two-columns {
+    grid-template-columns: 17rem auto;
+}
 .show-button {
     margin: 1rem;
 }

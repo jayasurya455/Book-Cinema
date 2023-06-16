@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CinemaService } from '../../services/cinema.service';
 
 @Component({
   selector: 'app-dates-available',
@@ -10,7 +11,7 @@ export class DatesAvailableComponent implements OnInit {
   public currentDate: Date = new Date();
   public availableDates: Date[] = [];
   public activeDate: Date = new Date();
-  constructor() {}
+  constructor(private cinemaService: CinemaService) {}
 
   ngOnInit(): void {
     for (let i = 0; i < this.numberOfDates; i++) {
@@ -23,5 +24,6 @@ export class DatesAvailableComponent implements OnInit {
 
   setActiveDate(activeDate: Date) {
     this.activeDate = activeDate;
+    this.cinemaService.updateActiveDate(this.activeDate);
   }
 }

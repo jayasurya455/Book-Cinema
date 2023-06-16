@@ -1,10 +1,11 @@
+<app-header></app-header>
 <div class="theatre-landing">
+  <ng-container *ngIf="movieName !== 'all'">
+    <div class="movie-background">
+      <app-movie-details [movieDetails]="movie"></app-movie-details>
+    </div>
+  </ng-container>
   <div class="theatres-conatiner">
-    <ng-container *ngIf="movieName !== 'all'">
-      <div class="movie-background">
-        <app-movie-details [movieDetails]="movie"></app-movie-details>
-      </div>
-    </ng-container>
     <h1 class="theatre-title">Theatres</h1>
     <div class="theatre-dates-conatiner">
       <app-dates-available></app-dates-available>

@@ -17,6 +17,9 @@ export class CinemaService {
     showTime: String;
     movie: Movie | undefined;
   }>({ theatre: undefined, showTime: '', movie: undefined });
+  public activeDate = new BehaviorSubject<{ activeDate: Date }>({
+    activeDate: new Date(),
+  });
 
   constructor(private http: HttpClient) {}
 
@@ -60,5 +63,13 @@ export class CinemaService {
     movie: Movie | undefined;
   }> {
     return this.bookSeatsDetails.asObservable();
+  }
+
+  public updateActiveDate(date: Date) {
+    this.activeDate.next({ activeDate: date });
+  }
+
+  public getActiveDate(): Observable<{ activeDate: Date }> {
+    return this.activeDate.asObservable();
   }
 }

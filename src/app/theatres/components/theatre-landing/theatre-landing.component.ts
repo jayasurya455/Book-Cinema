@@ -33,10 +33,10 @@ export class TheatreLandingComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.store.dispatch(getAllDetails({userName: this.userMail}));
+    this.store.dispatch(getAllDetails({ userName: this.userMail }));
 
     this.store.pipe(select(getDetailsData)).subscribe((data) => {
-        this.movies = data?.movies;
+      this.movies = data?.movies;
       if (this.movieName != 'all' && data) {
         this.movie = data?.movies?.find(
           (obj) => obj.movie_name === this.movieName
@@ -63,9 +63,21 @@ export class TheatreLandingComponent implements OnInit, OnDestroy {
     this.cinemaService.setPageName(this.pageName);
   }
 
-  showSeatsAvailable(theatreDetails: any,showTime: any,movieName: any) {
-    this.cinemaService.updateBookSeatsDetails(theatreDetails,showTime,movieName);
-    this.route.navigate([this.route.url +'/'+ APP_PATH.bookSeats]);
+  showSeatsAvailable(theatreDetails: any, showTime: any, movieName: any) {
+    if (this.movieName == 'all') {
+      this.cinemaService.updateBookSeatsDetails(
+        theatreDetails,
+        showTime,
+        this.movies?.find((obj) => obj.movie_name == movieName)
+      );
+    } else {
+      this.cinemaService.updateBookSeatsDetails(
+        theatreDetails,
+        showTime,
+        this.movie
+      );
+    }
+    this.route.navigate([this.route.url + '/' + APP_PATH.bookSeats]);
   }
 
   ngOnDestroy(): void {
