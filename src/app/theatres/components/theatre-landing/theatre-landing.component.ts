@@ -17,7 +17,7 @@ export class TheatreLandingComponent implements OnInit, OnDestroy {
   public userMail: string = 'sample@gmail.com';
   public theatres: Theatre[] = [];
   public pageName: string = APP_PATH.theatres;
-  public movieName: string | null;
+  public movieName: string | undefined;
   public movie: Movie | undefined;
   public ngUnsubscribe = new Subject();
   public searchText: string = '';
@@ -29,7 +29,7 @@ export class TheatreLandingComponent implements OnInit, OnDestroy {
     private route: Router,
     private store: Store
   ) {
-    this.movieName = this.activatedRoute.snapshot.paramMap.get('id');
+    this.movieName = this.activatedRoute.snapshot.paramMap.get('id')?.replace("-"," ");
   }
 
   ngOnInit(): void {

@@ -1,13 +1,7 @@
-<div
-  class="main-header"
-  [ngClass]="{
-    'four-columns': !ref.hasChildNodes(),
-    'two-columns': ref.hasChildNodes()
-  }"
->
-  <a href="#"><h1>Book Cinema</h1></a>
+<div class="main-header" [ngClass]="{ 'four-columns': !ref.hasChildNodes() }">
   <div #ref><ng-content></ng-content></div>
   <ng-container *ngIf="!ref.hasChildNodes()">
+    <a href="#"><h1>Book Cinema</h1></a>
     <app-search-bar></app-search-bar>
     <div class="show-button">
       <button class="view-now-button" (click)="navigateToPage()">

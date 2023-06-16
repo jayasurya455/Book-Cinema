@@ -1,5 +1,25 @@
 <app-header>
-  <div>
-    {{ movie?.movie_name }}
+  <div class="details-container">
+    <button class="back-button" (click)="navigateToTheatres()"></button>
+    <div class="movie-theatre-container">
+      <div class="movie-details-container">
+        <div class="movie-name">{{ movie?.movie_name }}</div>
+      </div>
+      <div class="theatre-details-container">
+        <div class="theatre-name">{{ theatre?.theatre_name }}</div>
+        <div class="book-date separator">
+          {{ activeDate | date : "EEEE, MMMM d, y" }}
+        </div>
+        <div class="movie-tags-container separator">
+          <ng-container *ngFor="let jonor of jonors; let i = index">
+            <span class="movie-tags">{{ jonor }}</span>
+            <span
+              class="movie-tag-separator"
+              *ngIf="i + 1 !== jonors?.length"
+            ></span>
+          </ng-container>
+        </div>
+      </div>
+    </div>
   </div>
 </app-header>

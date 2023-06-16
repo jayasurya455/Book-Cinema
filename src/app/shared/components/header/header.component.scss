@@ -13,12 +13,9 @@ h1{
 }
 
 .four-columns {
-    grid-template-columns: 17rem  1rem auto auto;
+    grid-template-columns: 1rem 17rem auto auto;
 }
 
-.two-columns {
-    grid-template-columns: 17rem auto;
-}
 .show-button {
     margin: 1rem;
 }

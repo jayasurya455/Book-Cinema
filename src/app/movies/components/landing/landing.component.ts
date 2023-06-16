@@ -45,7 +45,7 @@ export class LandingComponent implements OnInit, OnDestroy {
 
   public navigateToTheatres(movieName: string | undefined) {
     this.route.navigate([
-      this.route.url.replace('movies', 'theatres/' + movieName),
+      this.route.url.replace('movies', 'theatres/' + movieName?.replace(" ","-")),
     ]);
   }
 
