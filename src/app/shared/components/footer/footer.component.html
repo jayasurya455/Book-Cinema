@@ -1,1 +1,11 @@
-<p>footer works!</p>
+<div class="icon-container">
+  <button class="available-seat"></button>
+  <span class="icon-name">Available Seat</span>
+  <button class="selected-seat"></button>
+  <span class="icon-name">Selected Seat</span>
+  <button class="blocked-seat"></button>
+  <span class="icon-name">Sold</span>
+  <button class="book-now" [ngClass]="{ show: showBookButton }">
+    Book Ticket
+  </button>
+</div>

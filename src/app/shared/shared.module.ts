@@ -8,6 +8,7 @@ import { SearchPipe } from './pipes/search/search.pipe';
 import { FormsModule } from '@angular/forms';
 import { DatesAvailableComponent } from './components/dates-available/dates-available.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { BookSeatsComponent } from './components/book-seats/book-seats.component';
 
 export { SearchBarComponent } from './components/search-bar/search-bar.component';
 export { HeaderComponent } from './components/header/header.component';
@@ -15,6 +16,7 @@ export { MovieDetailsComponent } from './components/movie-details/movie-details.
 export { SearchPipe } from './pipes/search/search.pipe';
 export { DatesAvailableComponent } from './components/dates-available/dates-available.component';
 export { FooterComponent } from './components/footer/footer.component';
+export { BookSeatsComponent } from './components/book-seats/book-seats.component';
 
 
 
@@ -27,7 +29,8 @@ export { FooterComponent } from './components/footer/footer.component';
     MovieDetailsComponent,
     SearchPipe,
     DatesAvailableComponent,
-    FooterComponent
+    FooterComponent,
+    BookSeatsComponent
   ],
   imports: [
     CommonModule,
@@ -39,7 +42,8 @@ export { FooterComponent } from './components/footer/footer.component';
     MovieDetailsComponent,
     SearchPipe,
     DatesAvailableComponent,
-    FooterComponent
+    FooterComponent,
+    BookSeatsComponent
   ],
 })
 export class SharedModule { }

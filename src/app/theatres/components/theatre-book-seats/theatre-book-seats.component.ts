@@ -15,6 +15,7 @@ export class TheatreBookSeatsComponent implements OnInit {
     theatre: Theatre | undefined;
     activeDate: Date = new Date();
     jonors: String[] | undefined;
+    showButton: boolean = false;
 
 
   constructor(private cinemaService: CinemaService, private router: Router) { }
@@ -37,6 +38,10 @@ export class TheatreBookSeatsComponent implements OnInit {
 
   navigateToTheatres() {
     this.router.navigate([this.router.url.replace(APP_PATH.bookSeats,"")]);
+  }
+
+  updateShowButton(event: any) {
+    this.showButton = event.showBookButton;
   }
 
 }

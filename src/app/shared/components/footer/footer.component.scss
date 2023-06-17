@@ -1,0 +1,72 @@
+.available-seat {
+    display: inline-block;
+    font-size: 10px;
+    line-height: 25px;
+    font-weight: 400;
+    background: #fff;
+    vertical-align: top;
+    border: 1px solid #1ea83c;
+    width: 25px;
+    line-height: 1px;
+    height: 25px;
+}
+
+.blocked-seat {
+    background: #eee!important;
+    color: #fff!important;
+    border: none;
+    display: inline-block;
+    font-size: 10px;
+    line-height: 25px;
+    font-weight: 400;
+    vertical-align: top;
+    width: 25px;
+    line-height: 1px;
+    height: 25px;
+}
+
+.selected-seat{
+    color: #fff;
+    background: #1ea83c!important;
+    border:1px solid #1ea83c;
+    display: inline-block;
+    font-size: 10px;
+    line-height: 25px;
+    font-weight: 400;
+    vertical-align: top;
+    width: 25px;
+    line-height: 1px;
+    height: 25px;
+}
+
+.icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    font-size: 14px;
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+.book-now {
+    position: absolute;
+    left: 88%;
+    top: 93.5%;
+    background-color: #f44336;
+    float: right;
+    color: #fff;
+    height: 35px;
+    border: none;
+    border-radius: 5px;
+    width: 135px;
+    font-size: 14px;
+    opacity: 0;
+    text-decoration: none;
+    transition: opacity 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.show {
+    opacity: 1;
+}

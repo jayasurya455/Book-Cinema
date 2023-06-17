@@ -1,0 +1,26 @@
+<div class="seats-main-conatiner">
+  <div class="seat-type-container" *ngFor="let seatTypeDetail of theaterSeats">
+    <div class="seat-type">
+      {{ seatTypeDetail.seatType }} - {{ seatTypeDetail.rate }}
+    </div>
+    <div class="seat-row-conatiner" *ngFor="let row of seatTypeDetail.rows">
+      <div class="seat-name">{{ row.name }}</div>
+      <div class="seats-container" *ngFor="let col of row.columns">
+        <ng-container *ngFor="let seat of col.seatNumber">
+          <button
+            class="seat-number"
+            [ngClass]="{
+              available: !bookedSeats.includes(seat),
+              blocked: bookedSeats.includes(seat),
+              selected: selectedSeats.includes(seat)
+            }"
+            (click)="selectOrDeselectSeat(seat)"
+          >
+            {{ seat }}
+          </button>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+  <div class="theatre-screen">All eyes this way please!</div>
+</div>

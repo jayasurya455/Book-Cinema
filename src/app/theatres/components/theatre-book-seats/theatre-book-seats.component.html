@@ -10,6 +10,9 @@
         <div class="book-date separator">
           {{ activeDate | date : "EEEE, MMMM d, y" }}
         </div>
+        <div class="book-date separator">
+          {{ showTime }}
+        </div>
         <div class="movie-tags-container separator">
           <ng-container *ngFor="let jonor of jonors; let i = index">
             <span class="movie-tags">{{ jonor }}</span>
@@ -23,3 +26,7 @@
     </div>
   </div>
 </app-header>
+<div>
+  <app-book-seats (updateShowButton)="updateShowButton($event)"></app-book-seats>
+</div>
+<app-footer [showBookButton]="showButton"></app-footer>
