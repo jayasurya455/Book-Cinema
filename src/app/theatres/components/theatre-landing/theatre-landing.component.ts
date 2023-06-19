@@ -29,7 +29,7 @@ export class TheatreLandingComponent implements OnInit, OnDestroy {
     private route: Router,
     private store: Store
   ) {
-    this.movieName = this.activatedRoute.snapshot.paramMap.get('id')?.replace("-"," ");
+    this.movieName = this.activatedRoute.snapshot.paramMap.get('id')?.replace(/_/g," ");
   }
 
   ngOnInit(): void {
